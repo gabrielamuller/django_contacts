@@ -14,8 +14,18 @@
       <li><a href="/logout">Logout</a></li>
       {% else %}
       <li><a href="/login">Login</a></li>
-      <li><a href="#">Register</a></li>
+      <li><a href="/register">Register</a></li>
       {% endif %}
+  </ul>
+  
+  {% if request.user.is_authenticated %}
+      <p>Your are now logged in as {{ request.user.email }}</p>
+  {% endif %}
+  
+  <ul>
+      {% for contact in contacts %}
+      <li>{{ contact }}</li>
+      {% endfor %}
   </ul>
   
 </body>
